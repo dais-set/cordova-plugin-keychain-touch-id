@@ -5,6 +5,7 @@ package com.cordova.plugin.android.fingerprintauth;
  */
 
 import android.Manifest;
+import android.app.FragmentTransaction;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -503,7 +504,9 @@ public class FingerprintAuthAux {
                     // Show the fingerprint dialog. The user has the option to use the fingerprint with
                     // crypto, or you can fall back to using a server-side verified password.
                     mFragment.setCryptoObject(new FingerprintManager.CryptoObject(mCipher));
-                    mFragment.show(cordova.getActivity().getFragmentManager(), DIALOG_FRAGMENT_TAG);
+                    FragmentTransaction transaction = cordova.getActivity().getFragmentManager().beginTransaction();
+                    transaction.add(mFragment, DIALOG_FRAGMENT_TAG);
+                    transaction.commitAllowingStateLoss();
                 } else {
                     mPluginResult = new PluginResult(PluginResult.Status.ERROR, "Failed to init Cipher");
                     mCallbackContext.sendPluginResult(mPluginResult);
