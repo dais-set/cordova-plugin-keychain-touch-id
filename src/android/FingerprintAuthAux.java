@@ -487,7 +487,7 @@ public class FingerprintAuthAux {
     public void showFingerprintDialog(final int mode, final String message, final CordovaInterface cordova) {
         final FingerprintAuthAux auth = this;
         mCurrentMode = mode;
-        cordova.getActivity().runOnUiThread(new Runnable() {
+        cordova.getThreadPool().execute(new Runnable() {
             public void run() {
                 // Set up the crypto object for later. The object will be authenticated by use
                 // of the fingerprint.
