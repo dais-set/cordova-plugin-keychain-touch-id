@@ -15,10 +15,10 @@
   ~ limitations under the License
   -->
 <resources>
-    <string name="cancel">Annulla</string>
-    <string name="use_backup">Usa backup</string>
+    <string name="fingerprint_cancel">Annulla</string>
+    <string name="fingerprint_use_backup">Usa backup</string>
     <string name="fingerprint_auth_dialog_title">Autenticazione Fingerprint</string>
-    <string name="ok">Ok</string>
+    <string name="fingerprint_ok">Ok</string>
     <string name="fingerprint_description">Tocca per accedere</string>
     <string name="fingerprint_hint">Touch sensor</string>
     <string name="fingerprint_not_recognized">Impronta non riconosciuta, prova ancora</string>
