@@ -367,9 +367,7 @@ public class FingerprintAuthAux {
             return true;
         } else if (action.equals(MOVE)) { //Move shared preferences from activity to global
             String key = args.getString(0);
-            String oldActivityPackageName = args.getString(1);
-            //Get old shared Preferences e.g: "com.outsystems.android.WebApplicationActivity"
-            SharedPreferences oldSharedPref = cordova.getActivity().getApplicationContext().getSharedPreferences(oldActivityPackageName,Context.MODE_PRIVATE);
+            SharedPreferences oldSharedPref = cordova.getActivity().getPreferences(Context.MODE_PRIVATE);
             String enc = oldSharedPref.getString("fing" + key, "");
             
             if (!enc.equals("")) {
