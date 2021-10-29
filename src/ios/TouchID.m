@@ -116,6 +116,11 @@
 
 }
 
+- (void)move:(CDVInvokedUrlCommand*)command{
+  CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+  [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 -(void)verify:(CDVInvokedUrlCommand*)command{
 	 	self.TAG = (NSString*)[command.arguments objectAtIndex:0];
 	  NSString* message = (NSString*)[command.arguments objectAtIndex:1];
