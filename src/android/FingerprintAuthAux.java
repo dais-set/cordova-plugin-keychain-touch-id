@@ -79,6 +79,7 @@ public class FingerprintAuthAux {
     private static final String HAS = "has";
     private static final String DELETE = "delete";
     private static final String MOVE = "move";
+	private static final String CLOSE_DIALOG = "closeDialog";
 
     /**
      * Alias for our key in the Android Key Store
@@ -386,7 +387,22 @@ public class FingerprintAuthAux {
             mPluginResult = new PluginResult(PluginResult.Status.OK);
             mCallbackContext.sendPluginResult(mPluginResult);
             return true;
-        }
+        } else if (action.equals(CLOSE_DIALOG)) {
+			try {
+				mFragment.closeDialog();
+				mPluginResult = new PluginResult(PluginResult.Status.OK);
+			} catch (Exception e) {
+				String message = e.getMessage();
+				String exception = e.getClass().getSimpleName();
+				String errorMessage = "Failed to close fp dialog: " + exception + ": " + message;
+				
+                mPluginResult = new PluginResult(PluginResult.Status.ERROR, errorMessage);
+			}
+			
+            mCallbackContext.sendPluginResult(mPluginResult);
+            return true;
+		}
+		
         return false;
     }
 

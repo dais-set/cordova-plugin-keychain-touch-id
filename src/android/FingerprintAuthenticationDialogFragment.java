@@ -151,6 +151,10 @@ public class FingerprintAuthenticationDialogFragment extends DialogFragment
     public void setCryptoObject(FingerprintManager.CryptoObject cryptoObject) {
         mCryptoObject = cryptoObject;
     }
+	
+	public void closeDialog (){
+            dismissAllowingStateLoss();
+	}
 
     /**
      * Switches to backup (password) screen. This either can happen when fingerprint is not
