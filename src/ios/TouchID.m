@@ -121,11 +121,6 @@
   [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)closeDialog:(CDVInvokedUrlCommand*)command{
-  CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString: @"Close dialog is not supported on iOS"];;
-  [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
-
 -(void)verify:(CDVInvokedUrlCommand*)command{
 	 	self.TAG = (NSString*)[command.arguments objectAtIndex:0];
 	  NSString* message = (NSString*)[command.arguments objectAtIndex:1];

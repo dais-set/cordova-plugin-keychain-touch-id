@@ -22,10 +22,8 @@ var touchid = {
 	},
 	move: function(key, successCallback, errorCallback){
     	exec(successCallback, errorCallback, "TouchID", "move", [key]);
-    },
-	closeDialog: function(successCallback, errorCallback){
-		exec(successCallback, errorCallback, "TouchID", "closeDialog", []);
-	}
+    }
+
 };
 
 module.exports = touchid;
