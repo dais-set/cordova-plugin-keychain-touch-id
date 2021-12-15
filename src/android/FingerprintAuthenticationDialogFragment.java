@@ -143,6 +143,7 @@ public class FingerprintAuthenticationDialogFragment extends DialogFragment
     public void onPause() {
         super.onPause();
         mFingerprintUiHelper.stopListening();
+		dismissAllowingStateLoss();
     }
 
     /**
